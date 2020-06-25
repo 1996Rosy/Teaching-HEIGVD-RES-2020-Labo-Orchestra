@@ -104,15 +104,15 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 | #  | Topic |
 | --- | --- |
 |Question | How can we represent the system in an **architecture diagram**, which gives information both about the Docker containers, the communication protocols and the commands? |
-| | *Insert your diagram here...* |
+| | *Insert your diagram here...* | ![](digram.jpg)
 |Question | Who is going to **send UDP datagrams** and **when**? |
-| | *Enter your response here...* |
-|Question | Who is going to **listen for UDP datagrams** and what should happen when a datagram is received? |
-| | *Enter your response here...* |
+| | *Enter your response here...* | The one sending UDP diagram is musician.js, the musicians when they play music (every secs). The sound must reach the auditor. As it is a sound made to reach the auditor's ears we don't need no answer from the auditor.
+|Question | Who is going to **listen to UDP datagrams** and what should happen when a datagram is received? |
+| | *Enter your response here...* | The one listening to the UDP diagrams is auditor.js, the auditor that will receive the datagram. He should do nothing to respond to the musicians but he should tell the client via TCP what is the instrument that is playing
 |Question | What **payload** should we put in the UDP datagrams? |
-| | *Enter your response here...* |
-|Question | What **data structures** do we need in the UDP sender and receiver? When will we update these data structures? When will we query these data structures? |
-| | *Enter your response here...* |
+| | *Enter your response here...* | The payload we should put in the UDP datagrams are the sounds of the instrument that is playing.
+|Question | What **data structures** do we need in the UDP sender and receiver? When will we update these data structures? When will we query these data structures? | 
+| | *Enter your response here...* | The data structure we can use for this is a map with JSON.
 
 
 ## Task 2: implement a "musician" Node.js application
@@ -121,7 +121,7 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 | ---  | --- |
 |Question | In a JavaScript program, if we have an object, how can we **serialize it in JSON**? |
 | | *Enter your response here...*  |
-|Question | What is **npm**?  |
+|Question | What is **npm**?  | 
 | | *Enter your response here...*  |
 |Question | What is the `npm install` command and what is the purpose of the `--save` flag?  |
 | | *Enter your response here...*  |
