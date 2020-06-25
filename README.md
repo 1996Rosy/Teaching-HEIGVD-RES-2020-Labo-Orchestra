@@ -104,35 +104,35 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 | #  | Topic |
 | --- | --- |
 |Question | How can we represent the system in an **architecture diagram**, which gives information both about the Docker containers, the communication protocols and the commands? |
-| | *Insert your diagram here...* | ![](digram.jpg)
+| | ![](digram.jpg) | 
 |Question | Who is going to **send UDP datagrams** and **when**? |
-| | *Enter your response here...* | The one sending UDP diagram is musician.js, the musicians when they play music (every secs). The sound must reach the auditor. As it is a sound made to reach the auditor's ears we don't need no answer from the auditor.
+| |  The one sending UDP diagram is musician.js, the musicians when they play music (every secs). The sound must reach the auditor. As it is a sound made to reach the auditor's ears we don't need no answer from the auditor. |
 |Question | Who is going to **listen to UDP datagrams** and what should happen when a datagram is received? |
-| | *Enter your response here...* | The one listening to the UDP diagrams is auditor.js, the auditor that will receive the datagram. He should do nothing to respond to the musicians but he should tell the client via TCP what is the instrument that is playing
+| | The one listening to the UDP diagrams is auditor.js, the auditor that will receive the datagram. He should do nothing to respond to the musicians but he should tell the client via TCP what is the instrument that is playing | 
 |Question | What **payload** should we put in the UDP datagrams? |
-| | *Enter your response here...* | The payload we should put in the UDP datagrams are the sounds of the instrument that is playing.
+| | The payload we should put in the UDP datagrams are the sounds of the instrument that is playing.| 
 |Question | What **data structures** do we need in the UDP sender and receiver? When will we update these data structures? When will we query these data structures? | 
-| | *Enter your response here...* | The data structure we can use for this is a map with JSON.
-
+| | The data structure we can use for this is a map with JSON.
+ | 
 
 ## Task 2: implement a "musician" Node.js application
 
 | #  | Topic |
 | ---  | --- |
 |Question | In a JavaScript program, if we have an object, how can we **serialize it in JSON**? |
-| | *Enter your response here...*  |
+| |  We can serialize an object with JSON using the instruction `JSON.stringify(object)`|
 |Question | What is **npm**?  | 
-| | *Enter your response here...*  |
-|Question | What is the `npm install` command and what is the purpose of the `--save` flag?  |
-| | *Enter your response here...*  |
-|Question | How can we use the `https://www.npmjs.com/` web site?  |
-| | *Enter your response here...*  |
+| |npm is the world's largest Software Registry. npm is also a software Package Manager for Node.js and Installer (source:w3schools.com) | 
+|Question | What is the `npm install` command and what is the purpose of the `--save` flag?  | 
+| | npm includes a CLI (Command Line Client) that can be used to download and install software or/and packages using command `npm install`. You use  `--save` so that the package is installed in your computer and is usable for any project.   | 
+|Question | How can we use the `https://www.npmjs.com/` web site?  | 
+| | We can use this site to search package and have access to documentation about htose packages|
 |Question | In JavaScript, how can we **generate a UUID** compliant with RFC4122? |
-| | *Enter your response here...*  |
+| | We download the UUID packet using npm, and as the documentation states, we use the  function uuidv4|
 |Question | In Node.js, how can we execute a function on a **periodic** basis? |
-| | *Enter your response here...*  |
+| | We can execute a function on a periondic basis using the instruction `setInterval(this.play.bind(this), 1000);`  |
 |Question | In Node.js, how can we **emit UDP datagrams**? |
-| | *Enter your response here...*  |
+| | We can use  the dgram packet along with a udp socket and send with the `send` method | 
 |Question | In Node.js, how can we **access the command line arguments**? |
 | | *Enter your response here...*  |
 
