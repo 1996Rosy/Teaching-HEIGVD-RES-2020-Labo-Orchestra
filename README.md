@@ -128,13 +128,13 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 |Question | How can we use the `https://www.npmjs.com/` web site?  | 
 | | We can use this site to search package and have access to documentation about htose packages|
 |Question | In JavaScript, how can we **generate a UUID** compliant with RFC4122? |
-| | We download the UUID packet using npm, and as the documentation states, we use the  function uuidv4|
+| | We download the UUID packet using npm, and as the documentation states, we use the function uuidv4|
 |Question | In Node.js, how can we execute a function on a **periodic** basis? |
-| | We can execute a function on a periondic basis using the instruction `setInterval(this.play.bind(this), 1000);`  |
+| | We can execute a function on a periondic basis using the instruction `setInterval(this.update.bind(this), 500);`  |
 |Question | In Node.js, how can we **emit UDP datagrams**? |
-| | We can use  the dgram packet along with a udp socket and send with the `send` method | 
+| | We can use the dgram packet along with a udp socket and send with the `send` method | 
 |Question | In Node.js, how can we **access the command line arguments**? |
-| | *Enter your response here...*  |
+| | `node app.js arg1 arg2` |
 
 
 ## Task 3: package the "musician" app in a Docker image
@@ -142,17 +142,17 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 | #  | Topic |
 | ---  | --- |
 |Question | How do we **define and build our own Docker image**?|
-| | *Enter your response here...*  |
+| |`docker build -t res/musician .` |
 |Question | How can we use the `ENTRYPOINT` statement in our Dockerfile?  |
-| | *Enter your response here...*  |
+| | `ENTRYPOINT ["node", "/opt/app/musician.js"]` |
 |Question | After building our Docker image, how do we use it to **run containers**?  |
 | | *Enter your response here...*  |
 |Question | How do we get the list of all **running containers**?  |
-| | *Enter your response here...*  |
+| | `docker run -d -p 2205:2205 res/musician`  |
 |Question | How do we **stop/kill** one running container?  |
-| | *Enter your response here...*  |
+| | `docker kill <container_name>` |
 |Question | How can we check that our running containers are effectively sending UDP datagrams?  |
-| | *Enter your response here...*  |
+| | We can use wireshark to verify that, by doing a capture of docker0|
 
 
 ## Task 4: implement an "auditor" Node.js application
@@ -160,15 +160,17 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 | #  | Topic |
 | ---  | ---  |
 |Question | With Node.js, how can we listen for UDP datagrams in a multicast group? |
-| | *Enter your response here...*  |
+| | `socket.bind(protocol.PROTOCOL_PORT, () => {console.log('Joining multicast group');socket.addMembership(protocol.PROTOCOL_MULTICAST_ADDRESS);});` |
 |Question | How can we use the `Map` built-in object introduced in ECMAScript 6 to implement a **dictionary**?  |
-| | *Enter your response here...* |
+| | We can use the map built in object so that each key of the map is the uuid of a musician and its value would be an object containing the instrument, the first sound emitted by the instrument and the last sound emitted by the instrument |
 |Question | How can we use the `Moment.js` npm module to help us with **date manipulations** and formatting?  |
-| | *Enter your response here...* |
+| | moment.js can be used to calculate the difference between two moments or dates using the `diff` method and we can also get the moment when a sound has been emitted with the `moment()` method. We can format the date to see it in our screen using `moment().toISOString`|
 |Question | When and how do we **get rid of inactive players**?  |
-| | *Enter your response here...* |
+| | We get rid of an inactive player when it has not emitted a sound for more than 5 seconds by deleting it of the map using the `delete` method from map |
 |Question | How do I implement a **simple TCP server** in Node.js?  |
-| | *Enter your response here...* |
+| | Using these lines, you can implement a simple server using Node.js :
+`const TCP_Server = net.createServer();`
+`TCP_Server.listen(protocol.PROTOCOL_PORT);`|
 
 
 ## Task 5: package the "auditor" app in a Docker image
