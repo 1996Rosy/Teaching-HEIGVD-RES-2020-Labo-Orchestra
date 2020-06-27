@@ -1,5 +1,5 @@
 FROM node:8
-MAINTAINER Olivier Liechti <olivier.liechti@heig-vd.ch>
+MAINTAINER Rosy-Laure Wonjamouna <rosy-laure.wonjamouna@heig-vd.ch>
 
 
 #

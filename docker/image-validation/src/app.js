@@ -61,11 +61,11 @@ function askAuditorForActiveInstruments(activeInstrumentsHaveBeenRetrieved) {
 		});
 	};
 
-  /*
-   * We use our utility class to find 'auditor' containers. We assume that we will get at least
-   * one and we connect to the first one (this code is not robust... we should handle the situation where
-   * there is no auditor).
-   */
+	/*
+	* We use our utility class to find 'auditor' containers. We assume that we will get at least
+	* one and we connect to the first one (this code is not robust... we should handle the situation where
+	* there is no auditor).
+	*/
 	DockerUtils.lookForAuditorContainers(function(err, auditors) {
 		/*
 		 * When we reach this statement, we have an array of containers in 'auditors'.
@@ -93,7 +93,7 @@ function compareAuditorStateAgainstRunningContainers( checkDone ) {
 			askAuditorForActiveInstruments
 		], function(err, results) {
 			var instrumentsSeenInDocker = results[0].sort();
-			var instrumentsSeenByAuditor = results[1].map( function( raw ) {
+			var instrumentsSeenByAuditor = results[1].map( function(raw) {
 				return raw.instrument;
 			});
 			instrumentsSeenByAuditor.sort();
@@ -159,10 +159,10 @@ async.parallel(startContainerFunctions, function(err, results) {
 					console.log("Scheduling a new test");
 					checkThatAuditorDetectsKilledContainer();					
 				});
-			}, 8000);			
+			}, 6000);			
 		}
 		
 		
-	}, 5000);
+	}, 2000);
 });
 

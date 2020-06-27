@@ -1,4 +1,3 @@
-
 const moment = require('moment');
 const net = require('net');
 const protocol = require('./musician-protocol');
@@ -10,7 +9,7 @@ const dgram = require('dgram');
 
 /* 
  * Let's create a datagram socket. We will use it to listen for datagrams published in the
- * multicast group by thermometers and containing measures
+ * multicast group by musicians and containing sounds
  */
 const s = dgram.createSocket('udp4');
 s.bind(protocol.PROTOCOL_PORT, function() {
@@ -29,24 +28,22 @@ s.on('message', function(msg, source) {
   
   const musician = JSON.parse(msg);
 
-  if (orchestra.has(musician.uuid)) {
-    orchestra.get(musician.uuid).last_sound = moment().toISOString();
-  } else {
-    orchestra.set(musician.uuid, {
-      instrument: musician.instrument,
-      first_sound: moment().toISOString(),
-      last_sound: moment().toISOString(),
-    });
-  }
+  if (orchestra.has(musician.uuid)) orchestra.get(musician.uuid).last_sound = moment().toString();
+  else orchestra.set(musician.uuid, {
+                                        instrument: musician.instrument,
+                                        first_sound: moment().toString(),
+                                        last_sound: moment().toString(),
+                                      });
+  
 });
  
   
 /**
  * We implement a small TCP server and we write the information about who is currently playing
- * 
  */
 const TCP_Server = net.createServer();
 TCP_Server.listen(protocol.PROTOCOL_PORT);
+
 TCP_Server.on('connection', (TCP_Socket) => {
   const payload = [];
   orchestra.forEach((value, key) => {
