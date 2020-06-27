@@ -48,7 +48,7 @@ TCP_Server.on('connection', (TCP_Socket) => {
   const payload = [];
   orchestra.forEach((value, key) => {
     //A musician is active if it has played a sound during the last 5 seconds.
-    if (moment().diff(value.lastSound, 'seconds') <= 5) {
+    if (moment().diff(value.last_sound, 'seconds') <= 5) {
       const item = {
         uuid: key,
         instrument: value.instrument,

@@ -8,8 +8,8 @@ echo ""
 echo ""
 echo "*** Killing all running containers"
 echo ""
-sudo docker kill $(docker ps -a -q)
-sudo docker rm $(docker ps -a -q)
+sudo docker kill $(sudo docker ps -a -q)
+sudo docker rm $(sudo docker ps -a -q)
 
 #
 # Let's get rid of existing images...
