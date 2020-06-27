@@ -104,7 +104,7 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 | #  | Topic |
 | --- | --- |
 |Question | How can we represent the system in an **architecture diagram**, which gives information both about the Docker containers, the communication protocols and the commands? |
-| | ![](digram.jpg) | 
+| | ![](images/diagram.png) | 
 |Question | Who is going to **send UDP datagrams** and **when**? |
 | |  The one sending UDP diagram is musician.js, the musicians when they play music (every secs). The sound must reach the auditor. As it is a sound made to reach the auditor's ears we don't need no answer from the auditor. |
 |Question | Who is going to **listen to UDP datagrams** and what should happen when a datagram is received? |
